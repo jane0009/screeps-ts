@@ -1,10 +1,10 @@
-import { Task } from './Task'
+import { ExtendedCreep } from 'extends';
+import { Subtask } from './Subtask';
+import { ParentTask } from "./ParentTask";
 
-export class TaskUpgrade extends Task {
-  public runTask(): void {
-    throw new Error('Method not implemented.')
-  }
-  constructor() {
-    super(9, [WORK, CARRY, MOVE])
-  }
+export class TaskUpgrade extends ParentTask {
+    constructor(room: Room) {
+        super("upgrading", 9, [WORK, CARRY, MOVE], room);
+    }
+    protected subtasks: Subtask[] = [];
 }
